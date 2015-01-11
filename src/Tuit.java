@@ -3,12 +3,16 @@ public class Tuit {
 	private int seguidores;
 	private int siguiendo;
 	private int tweets;
+	private int numberOfURLs;
+	private int numberOfMentions;
 
 	public Tuit(String texto, int seguidores, int siguiendo, int tweets) {
 		this.texto = texto;
 		this.seguidores = seguidores;
 		this.siguiendo = siguiendo;
 		this.tweets = tweets;
+		this.numberOfMentions=0;
+		this.numberOfURLs=0;
 	}
 
 	public String getTexto() {
@@ -43,6 +47,22 @@ public class Tuit {
 		this.tweets = tweets;
 	}
 	
+	public int getNumberOfURLs() {
+		return numberOfURLs;
+	}
+
+	public void setNumberOfURLs(int numberOfURLs) {
+		this.numberOfURLs = numberOfURLs;
+	}
+
+	public int getNumberOfMentions() {
+		return numberOfMentions;
+	}
+
+	public void setNumberOfMentions(int numberOfMentions) {
+		this.numberOfMentions = numberOfMentions;
+	}
+
 	public String toString(){
 		return "Texto: "+texto+" Seguidores: "+seguidores+" Siguiendo: "+siguiendo+" Tweets: "+tweets ;
 	}
