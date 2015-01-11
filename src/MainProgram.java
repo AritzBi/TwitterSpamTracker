@@ -12,9 +12,9 @@ public class MainProgram {
 		
 		String [] prepositions={" a ", " ante ", " bajo ", " cabe ", " con ", " contra ", " de ", " desde ", " durante ", " en ", " entre ", " hacia ", " hasta ", " mediante ", " para ", " por ", " según ", " sin ", " so ", " sobre ", " tras ", " versus ", " vía ", "la ", " si "};		
 		
-		String [] determinantes = { " su ", " mi ", " la ", " el ", " lo ", " las ", " los " , " l@s ", " tus ", " ellos ", " ellas ", " tu ", " un ", " una ", " del ", " y ", " nuestras ", " nuestros ", " cualquier "};
+		String [] determinantes = { " su ", " al ", " esta ", " ese " , " mi ", " la ", " el ", " lo ", " las ", " los " , " l@s ", " tus ", " ellos ", " ellas ", " tu ", " un ", " una ", " del ", " y ", " o ", " nuestras ", " nuestros ", " cualquier "};
 		
-		String [] signosDePuntacion = { ";", "!", "¡"}; 
+		String [] signosDePuntacion = { ";", "¿", "¡", "!", ": ", " ? "}; 
 		
 		for(Tuit tuit: publicidad){
 			for(int i=0;i<prepositions.length;i++){
