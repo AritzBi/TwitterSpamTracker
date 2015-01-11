@@ -18,7 +18,13 @@ public class ReadCSV {
 			br = new BufferedReader(new FileReader(csvFile));
 			while ((line = br.readLine()) != null) {
 				String[] tuit = line.split(cvsSplitBy);
-				tuits.add(new Tuit(tuit[0],Integer.parseInt(tuit[1]),Integer.parseInt(tuit[2]),Integer.parseInt(tuit[3].replaceAll(";", ""))));
+				String texto = tuit[0];
+				if ( texto.startsWith("\"") )
+				{
+					texto = texto.replaceAll("\"", "");
+				}
+				texto = " " + texto;
+				tuits.add(new Tuit(texto,Integer.parseInt(tuit[1]),Integer.parseInt(tuit[2]),Integer.parseInt(tuit[3].replaceAll(";", ""))));
 			}
 
 		} catch (FileNotFoundException e) {
