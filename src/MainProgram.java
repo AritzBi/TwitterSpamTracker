@@ -32,30 +32,23 @@ public class MainProgram {
 	    Pattern pattern = Pattern.compile(lRegex);
 		for(Tuit tuit: tuits){
 			int numberOfURLs=0;
-			System.out.println(tuit.getTexto());
 		    Matcher  matcher = pattern.matcher(tuit.getTexto());
-		    if(matcher.matches()){
-		    	System.out.println("Pito");
-		    }
 		    while (matcher.find())
 		    	numberOfURLs++;
-		    System.out.println(numberOfURLs);
 		    tuit.setNumberOfURLs(numberOfURLs);
 		    
 		}
 	}
 	
 	public static void getNumberOfMentions(ArrayList<Tuit>tuits){
-		String regex="@[a-z0-9_-]{3,15}";
+		String regex="@(\\w){1,15}";
 		
 		Pattern pattern = Pattern.compile(regex);
 		for(Tuit tuit: tuits){
 			int numberOfMentions=0;
-			System.out.println(tuit.getTexto());
 		    Matcher  matcher = pattern.matcher(tuit.getTexto());
 		    while (matcher.find())
 		    	numberOfMentions++;
-		    System.out.println(numberOfMentions);
 		    tuit.setNumberOfMentions(numberOfMentions);
 		}
 	}
