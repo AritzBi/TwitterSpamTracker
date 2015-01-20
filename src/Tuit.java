@@ -8,6 +8,7 @@ public class Tuit {
 	private int numberOfURLs;
 	private int numberOfMentions;
 	private HashMap<String,Integer> hashMap;
+	private int numberOfNumbers;
 	
 	public static String descuento = "descuent";
 	public static String oferta = "ofert";
@@ -36,6 +37,7 @@ public class Tuit {
 	public static String TODO = "tod";
 	public static String EURO = "€";
 	public static String SEGUIR = "segui";
+	public static String GRATIS = "gratis";
 
 	public Tuit(String texto, int seguidores, int siguiendo, int tweets) {
 		this.texto = texto;
@@ -44,6 +46,7 @@ public class Tuit {
 		this.tweets = tweets;
 		this.numberOfMentions=0;
 		this.numberOfURLs=0;
+		this.numberOfNumbers = 0;
 		
 		hashMap = new HashMap<String, Integer>();
 		hashMap.put(descuento, 0 );
@@ -72,6 +75,7 @@ public class Tuit {
 		hashMap.put(MUY, 0 );
 		hashMap.put(TODO, 0 );
 		hashMap.put(EURO, 0);
+		hashMap.put(GRATIS, 0);
 	}
 
 	public String getTexto() {
@@ -132,6 +136,14 @@ public class Tuit {
 
 	public void setHashMap(HashMap<String, Integer> hashMap) {
 		this.hashMap = hashMap;
+	}
+
+	public int getNumberOfNumbers() {
+		return numberOfNumbers;
+	}
+
+	public void setNumberOfNumbers(int numberOfNumbers) {
+		this.numberOfNumbers = numberOfNumbers;
 	}
 
 }

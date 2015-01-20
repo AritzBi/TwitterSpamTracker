@@ -24,6 +24,7 @@ public class ReadCSV {
 					texto = texto.replaceAll("\"", "");
 				}
 				texto = " " + texto;
+				texto = Utilidades.remove(texto);
 				tuits.add(new Tuit(texto,Integer.parseInt(tuit[1]),Integer.parseInt(tuit[2]),Integer.parseInt(tuit[3].replaceAll(";", ""))));
 			}
 

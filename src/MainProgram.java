@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class MainProgram {
 	
-	static String [] prepositions={" a ", " ante ", " bajo ", " cabe ", " con ", " contra ", " de ", " desde ", 
+	static String [] prepositions= {" a ", " ante ", " bajo ", " cabe ", " con ", " contra ", " de ", " desde ", 
 			" durante ", " en ", " entre ", " hacia ", " hasta ", " mediante ", " para ", " por ", 
 			" según ", " sin ", " so ", " sobre ", " tras ", " versus ", " vía ", "la ", " si "};		
 
@@ -49,6 +49,13 @@ public class MainProgram {
 		getNumberOfMentions(publicidad);
 		getNumberOfMentions(noPublicidad);
 		
+		for ( Tuit tuit : publicidad )
+		{
+			System.out.println(tuit.getTexto());
+			System.out.println(tuit.getHashMap());
+			System.out.println(tuit.getNumberOfNumbers());
+			System.out.println(tuit.getNumberOfMentions());
+		}
 		PrintWriter writer;
 		try {
 			writer = new PrintWriter("FinalText.txt", "UTF-8");
@@ -70,10 +77,14 @@ public class MainProgram {
 			String linea = "";
 			for ( String keyWord : tuit.getHashMap().keySet() )
 			{
-				linea += tuit.getHashMap().get(keyWord) + ",";
+				linea += keyWord + " " + tuit.getHashMap().get(keyWord) + ",";
 			}
 			linea += tuit.getNumberOfMentions() + ",";
 			linea += tuit.getNumberOfURLs() + ",";
+			linea += tuit.getNumberOfNumbers() + ",";
+			//linea += tuit.getSeguidores() + ",";
+			//linea += tuit.getSiguiendo() + ",";
+			//linea += tuit.getTweets() + ",";
 			if ( publicidad )
 				linea += "1";
 			else
@@ -105,9 +116,19 @@ public class MainProgram {
 				{
 					tuit.getHashMap().put ( key, tuit.getHashMap().get(key) + 1 );	
 				}
+
+			}
+			
+			if ( isNumeric ( palabra ) )
+			{
+				tuit.setNumberOfNumbers( tuit.getNumberOfNumbers() + 1 );
 			}
 		}
 	}
+	
+	public static boolean isNumeric(String s) {  
+	    return s.matches("[-+]?\\d*\\.?\\d+");  
+	}  
 	
 	public static void reemplazarValores ( Tuit tuit, String [] restricciones )
 	{
